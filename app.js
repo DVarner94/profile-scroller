@@ -4,28 +4,32 @@ const data = [
         age: 35,
         gender: 'male',
         lookingfor: 'female',
-        location: 'San Francisco, CA'
+        location: 'San Francisco, CA',
+        image: 'https//randomuser.me/api/portraits/men/82.jpg'
     },
     {
-        name: 'John Doe',
-        age: 35,
-        gender: 'male',
-        lookingfor: 'female',
-        location: 'San Francisco, CA'
+        name: 'Jane Davis',
+        age: 31,
+        gender: 'female',
+        lookingfor: 'male',
+        location: 'San Leandro, CA',
+        image: 'https//randomuser.me/api/portraits/women/82.jpg'
     },
     {
-        name: 'John Doe',
-        age: 35,
+        name: 'Sam Adams',
+        age: 28,
         gender: 'male',
         lookingfor: 'female',
-        location: 'San Francisco, CA'
+        location: 'Larkspur, CA',
+        image: 'https//randomuser.me/api/portraits/men/80.jpg'
     },
     {
-        name: 'John Doe',
-        age: 35,
-        gender: 'male',
-        lookingfor: 'female',
-        location: 'San Francisco, CA'
+        name: 'Jen Mando',
+        age: 37,
+        gender: 'female',
+        lookingfor: 'male',
+        location: 'Daly City, CA',
+        image: 'https//randomuser.me/api/portraits/women/85.jpg'
     },
 ];
 
@@ -38,7 +42,8 @@ document.getElementById('next').addEventListener('click', nextProfile);
 function nextProfile() {
     const currentProfile = profiles.next().value;
 
-    document.getElementById('profileDisplay').innerHTML = `
+    if (currentProfile !== undefined) {
+        document.getElementById('profileDisplay').innerHTML = `
     <ul class="list-group">
         <li class="list-group-item">Name: ${currentProfile.name}</li>
         <li class="list-group-item">Age: ${currentProfile.age}</li>
@@ -47,7 +52,11 @@ function nextProfile() {
         ${currentProfile.lookingfor}</li>
     </ul>`;
 
-    document.getElementById('imageDisplay').innerHTML = `<img src="${currentProfile.image}"`
+        document.getElementById('imageDisplay').innerHTML = `<img src="${currentProfile.image}"`
+    } else {
+        // no more profiles
+        window.location.reload()
+    }
 }
 
 // Profile Iterator
