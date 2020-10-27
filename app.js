@@ -2,38 +2,41 @@ const data = [
     {
         name: 'John Doe',
         age: 35,
-        gender: 'male',
-        lookingfor: 'female',
+        gender: 'Male',
+        lookingfor: 'Female',
         location: 'San Francisco, CA',
-        image: 'https//randomuser.me/api/portraits/men/82.jpg'
+        image: 'https://randomuser.me/api/portraits/men/82.jpg'
     },
     {
         name: 'Jane Davis',
         age: 31,
-        gender: 'female',
-        lookingfor: 'male',
+        gender: 'Female',
+        lookingfor: 'Male',
         location: 'San Leandro, CA',
-        image: 'https//randomuser.me/api/portraits/women/82.jpg'
+        image: 'https://randomuser.me/api/portraits/women/82.jpg'
     },
     {
         name: 'Sam Adams',
         age: 28,
-        gender: 'male',
-        lookingfor: 'female',
+        gender: 'Male',
+        lookingfor: 'Female',
         location: 'Larkspur, CA',
-        image: 'https//randomuser.me/api/portraits/men/80.jpg'
+        image: 'https://randomuser.me/api/portraits/men/80.jpg'
     },
     {
         name: 'Jen Mando',
         age: 37,
-        gender: 'female',
-        lookingfor: 'male',
+        gender: 'Female',
+        lookingfor: 'Male',
         location: 'Daly City, CA',
-        image: 'https//randomuser.me/api/portraits/women/85.jpg'
+        image: 'https://randomuser.me/api/portraits/women/85.jpg'
     },
 ];
 
 const profiles = profileIterator(data);
+
+// call next profile
+nextProfile();
 
 // Next event
 document.getElementById('next').addEventListener('click', nextProfile);
@@ -52,7 +55,7 @@ function nextProfile() {
         ${currentProfile.lookingfor}</li>
     </ul>`;
 
-        document.getElementById('imageDisplay').innerHTML = `<img src="${currentProfile.image}"`
+        document.getElementById('imageDisplay').innerHTML = `<img src="${currentProfile.image}">`
     } else {
         // no more profiles
         window.location.reload()
